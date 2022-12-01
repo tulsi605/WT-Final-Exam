@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        let items_array = [
+    { "productname": "Mobile", "id": 1, price: 70000 },
+    { "productname": "Laptop", "id": 2, price: 100000 },
+    { "productname": "Airpods", "id": 3, price: 26900 },
+    { "productname": "Watch", "id": 4, price: 30000 },
+    { "productname": "Shoes", "id": 5, price: 35000 },
+    { "productname": "Bag", "id": 6, price: 10000 },
+    function appendNode(parent, element) {
+    parent.appendChild(element);
+};
+
+function getDiv(container) {
+    return document.getElementById(container);
+};
+
+function createNode(node) {
+    let element = document.createElement(node);
+    return element;
+};
+function displayItems(items, container) {
+    let items_container = getDiv(container);
+    items_container.innerHTML = '';
+
+    for (let i = 0; i < items.length; i++) {
+        let item = items[i];
+
+        let item_node = createNode("li");
+        item_node.setAttribute("id", item.id);
+
+        if (item.count > 0) {
+            item_node.innerHTML = `${item.name} 
+            <span id="badge">${item.count}</span>`;
+            appendNode(items_container, item_node);
+        }
+    }
+}
+items_container.innerHTML = '';
+displayItems(items_array, "items");
+    
+};
+
+let cart = [];
+    </script>
+    <title>Q4(4)</title>
+</head>
+<body>
+    <div id="wrapper">
+       <div id="container">
+           <h1>E-Commerce Website</h1>
+           <div id="items"></div>
+       </div>
+        <div id="container">
+            <h1>Cart</h1>
+            <div id="cart"></div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
